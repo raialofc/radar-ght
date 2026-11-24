@@ -1,3 +1,4 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -69,6 +70,9 @@ nav.scroll a:hover{color:var(--lk)}
 .fig{position:relative;min-height:300px;max-height:540px;flex:1;margin-top:8px}.fxp{display:flex;flex-direction:column}.fig>svg{position:absolute;inset:0;width:100%;height:100%}
 .fig .gl{stroke:var(--line)}.fig .tx{fill:var(--mute);font-size:12px}.fig .pl{stroke:var(--plot)}.fig .hl{stroke:var(--ink);stroke-opacity:.5}.fig .hc{fill:var(--ink)}
 .tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--bg);font-size:13px;padding:6px 10px;border-radius:8px;white-space:nowrap;display:none;z-index:2}
+.imp{font-size:13px;padding:3px 10px;border-radius:12px;white-space:nowrap;font-weight:700}.imp.mto{background:var(--vivo);color:#fff}.imp.alto{background:var(--am);color:#2a2400}.imp.medio{background:var(--az);color:#06202a}
+.tend{font-weight:700;white-space:nowrap}.tend.alta{color:var(--vivo)}.tend.queda{color:var(--az)}.tend.misto{color:var(--am)}.tend.semdado{color:var(--mute);font-weight:500}
+.mat td{vertical-align:top}.mat .mk{display:block;font-size:13px;color:var(--mute);margin-top:2px}
 .src{font-size:13px;color:var(--mute);margin-top:8px}
 table{width:100%;border-collapse:collapse;font-size:15px}
 th{text-align:left;font-weight:500;color:var(--mute);font-size:13px;padding:8px 8px 8px 0;border-bottom:1px solid var(--line)}
@@ -192,6 +196,10 @@ function emp(e){
   const nw=(e.noticias||[]).map(n=>`<div><a href="${url(n.url)}" target="_blank" rel="noopener">${esc(n.titulo)}</a><div class="meta">${esc(n.data)} · ${esc(n.fonte)}</div><p>${esc(n.resumo)}</p></div>`).join('');
   return `<article class="emp" id="emp-${esc((e.nome||'').toLowerCase().replace(/[^a-z0-9]+/g,'-'))}"><span class="tp">${esc(e.tipo)}</span><h3>${esc(e.nome)}</h3><p>${esc(e.perfil)}${e.url_perfil?` <a href="${url(e.url_perfil)}" target="_blank" rel="noopener">Fonte</a>`:''}</p>${nw?`<div class="nw">${nw}</div>`:''}${e.vazio?`<div class="vz">${esc(e.vazio)}</div>`:''}</article>`;
 }
+function matriz(m){if(!m||!m.length)return '';
+  const ic={'Muito alto':'mto','Alto':'alto','Médio':'medio'},tl={alta:'▲ Alta',queda:'▼ Queda',misto:'◆ Misto',semdado:'— Sem dado'};
+  return `<div class="panel"><h3>Exposição por matéria-prima</h3><table class="stack mat"><thead><tr><th>Matéria-prima</th><th>Produtos impactados</th><th>Impacto</th><th>Mercado agora</th></tr></thead><tbody>${m.map(r=>`<tr><td><b>${esc(r.materia)}</b></td><td>${esc(r.produtos)}</td><td><span class="imp ${ic[r.impacto]||'medio'}">${esc(r.impacto)}</span></td><td><span class="tend ${esc(r.tend)}">${tl[r.tend]||esc(r.tend)}</span> ${esc(r.mercado)}${r.url?`<a class="mk" href="${url(r.url)}" target="_blank" rel="noopener">${esc(r.data)} · ${esc(r.fonte)}</a>`:(r.data?`<span class="mk">${esc(r.data)}</span>`:'')}</td></tr>`).join('')}</tbody></table><div class="src">Impacto: peso da matéria-prima no custo dos produtos que a GHT comercializa. Mercado agora: tendência do preço internacional de referência na última leitura disponível.</div></div>`;
+}
 function prices(p){
   if(!p.length)return '';
     return `<div class="panel"><table class="stack"><thead><tr><th>Item</th><th>Valor</th><th>Variação</th><th>Data · fonte</th></tr></thead><tbody>${p.map(r=>`<tr><td>${esc(r.item)}</td><td class="nb">${esc(r.valor)}</td><td>${esc(r.var)}</td><td><a href="${url(r.url)}" target="_blank" rel="noopener">${esc(r.data)} · ${esc(r.fonte)}</a></td></tr>`).join('')}</tbody></table></div>`;
@@ -218,7 +226,7 @@ function render(){
   const on=new Set(D.com_noticia||[]);
   $('#blocks').innerHTML=D.blocos.map((b,i)=>`<section class="band ${i%2?'alt':''}${bgCls(b.fundo)}" id="${esc(b.id)}"${bgAttr(b.fundo)}><div class="w">
    <div class="bh"><span class="num" style="--c:var(${BC[b.id]||'--az'})">Bloco ${esc(b.num)}</span><h2>${esc(b.titulo)}</h2></div><p class="obj">${esc(b.objetivo)}</p>
-   ${b.id==='b1'?fxPanel():''}${prices(b.precos)}
+   ${b.id==='b1'?fxPanel():''}${prices(b.precos)}${matriz(b.materias)}
    ${b.id==='b5'?`<div class="panel">${Object.entries(D.clientes).map(([s,l])=>`<div class="seg"><span>${esc(s)}</span><div class="chips">${l.map(c=>`<span class="chip ${on.has(c)?'on':''}">${esc(c)}</span>`).join('')}</div></div>`).join('')}<div class="src">Destacados: clientes com notícia relevante nesta edição</div></div>`:''}
    ${b.abas?`<div class="abas" role="group" aria-label="Filtrar ${esc(b.titulo)}"><button data-aba="" aria-pressed="true">Todas</button>${b.abas.map(a=>`<button data-aba="${esc(a)}" aria-pressed="false">${esc(a)}</button>`).join('')}</div>`:''}
    ${b.empresas?`<div class="emps">${b.empresas.map(emp).join('')}</div>`:''}
@@ -260,3 +268,5 @@ fetch('data.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(r.status
 </script>
 </body>
 </html>
+
+</body></html>
