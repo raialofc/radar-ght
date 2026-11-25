@@ -213,14 +213,26 @@ ul{padding-left:20px;margin:8px 0}li{margin-bottom:6px}
 .pp a svg{width:13px;height:13px;fill:currentColor}
 .rbrand{display:inline-flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none}.rbrand .rsym{width:34px;height:34px;flex:none}
 .hbrand{display:flex;align-items:center;gap:16px;flex-wrap:wrap}.hbrand .rsym{width:68px;height:68px;color:var(--ink)}
-@media(max-width:700px){.rbrand b{display:none}.rbrand .rsym{width:30px;height:30px}}
+.rbrand .rsym{width:50px;height:50px}.rtxt{display:flex;flex-direction:column;align-items:flex-start;line-height:1;text-align:left}
+.rtxt b{font:900 26px/1 "Red Hat Display",sans-serif;letter-spacing:.06em;color:var(--ink)}
+.rtxt small{font:600 12px/1.2 "Red Hat Text",sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin-top:4px}
+.top .bar{padding-top:12px;padding-bottom:8px}
+.top-tick{margin:0;border-radius:0;border-width:1px 0 0}
+.top-tick>b{padding:8px 16px;padding-right:26px;font-size:12px}
+.top-tick .tr{font-size:13px}
+.tick .tr a{display:flex;gap:10px;align-items:center;color:var(--ink);text-decoration:none}.tick .tr a:hover{text-decoration:underline}
+.tick .tr a::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--am)}
+@media(max-width:700px){.rbrand .rsym{width:38px;height:38px}.rtxt b{font-size:20px}.rtxt small{display:none}.rbrand b{display:block}}
+.meta-r{display:flex;flex-direction:column;align-items:flex-end;gap:6px}.meta-r .dt{display:flex;gap:18px}
+.eb.sm{display:inline-flex;align-items:center;font:700 11px "Red Hat Text",sans-serif;text-transform:uppercase;letter-spacing:.05em;color:var(--ink);background:color-mix(in srgb,var(--am) 30%,transparent);border:1px solid color-mix(in srgb,var(--am) 70%,transparent);padding:3px 10px;border-radius:14px}
+.eb.sm{white-space:nowrap}@media(max-width:700px){.meta-r .eb.sm{font-size:8px;padding:2px 7px;letter-spacing:.03em}.meta-r{gap:4px}}
 </style>
 <script>new MutationObserver(()=>{for(const c of document.querySelectorAll('.stack td:not([data-l])')){let i=0,p=c;while(p=p.previousElementSibling)i+=p.colSpan;c.dataset.l=c.closest('table').rows[0].cells[i]?.textContent||''}}).observe(document,{childList:true,subtree:true})</script>
 </head>
 <body>
 <div class="r">
 <header class="top">
-  <div class="bar"><a href="#inicio" class="logo" aria-label="Capa do Radar"><img class="on-dark" src="img/logo-ght-branco.png" alt="GHT Grupo Hidrau Torque"><img class="on-light" src="img/logo-ght.png" alt="GHT Grupo Hidrau Torque"></a><a href="#inicio" class="rbrand"><svg class="rsym" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" aria-hidden="true">
+  <div class="bar"><a href="#inicio" class="rbrand"><svg class="rsym" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" aria-hidden="true">
   <defs><clipPath id="rIn1"><circle cx="60" cy="60" r="35"/></clipPath></defs>
   <path d="M60 60 L98.18 21.82 A54 54 0 0 1 113.2 50.6 Z" fill="#F2C200" opacity=".24"/>
   <g clip-path="url(#rIn1)">
@@ -235,8 +247,9 @@ ul{padding-left:20px;margin:8px 0}li{margin-bottom:6px}
   <line x1="58" y1="62" x2="98.2" y2="21.8" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/>
   <circle cx="86.5" cy="33.5" r="7" fill="#F2C200" stroke="currentColor" stroke-width="2.5"/>
 </svg>
-<b>Radar Estratégico de Supply Chain</b></a><span class="sp"></span><span id="ed">Carregando…</span><span id="upd"></span></div>
+<span class="rtxt"><b>RADAR</b><small>Estratégico de Supply Chain</small></span></a><span class="sp"></span><div class="meta-r"><div class="dt"><span id="ed">Carregando…</span><span id="upd"></span></div><span class="eb sm">Desenvolvido internamente · GHT</span></div></div>
   <nav class="tabsnav" aria-label="Blocos"><a href="#inicio" class="home">Capa</a><a href="#b1" style="--c:var(--am)">1 Câmbio</a><a href="#b2" style="--c:var(--ro)">2 Commodities</a><a href="#b3" style="--c:var(--az)">3 Comex</a><a href="#b4" style="--c:var(--la)">4 Transporte</a><a href="#b5" style="--c:var(--co)">5 Clientes</a><a href="#b6" style="--c:var(--ght)">6 Notícias GHT</a><a href="#b7" style="--c:var(--az2)">7 Ecossistema</a><a href="#b8" style="--c:var(--vd)">8 Tecnologia</a><a href="#metodo">Como ler</a></nav>
+  <div class="tick top-tick" aria-label="Últimas"><b>ÚLTIMAS</b><div class="vp"><div class="tr" id="tick"></div></div></div>
 </header>
 <main id="views">
 <section class="view" id="inicio">
@@ -257,7 +270,7 @@ ul{padding-left:20px;margin:8px 0}li{margin-bottom:6px}
   <line x1="58" y1="62" x2="98.2" y2="21.8" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/>
   <circle cx="86.5" cy="33.5" r="7" fill="#F2C200" stroke="currentColor" stroke-width="2.5"/>
 </svg>
-<span class="eb">Desenvolvido internamente · GHT</span></div>
+</div>
       <h1>Radar Estratégico de <span>Supply Chain</span></h1>
       <p class="intro">Um painel criado por colaboradores do Grupo Hidrau Torque para acompanhar, em um só lugar, o que acontece fora da empresa e pode mudar custos, prazos e demanda aqui dentro. Cada notícia vem com fonte, data e uma sugestão de ação para as áreas.</p>
       <ul class="pts">
@@ -286,7 +299,6 @@ ul{padding-left:20px;margin:8px 0}li{margin-bottom:6px}
   <div class="band"><div class="w">
     <div class="sec-h"><h2>Acesse os blocos</h2><span class="meta">Clique em um bloco para abrir. Use as setas ← → do teclado para avançar na apresentação.</span></div>
     <div class="tiles" id="tiles"></div>
-    <div class="tick" aria-label="Últimas" style="margin-top:28px"><b>ÚLTIMAS</b><div class="vp"><div class="tr" id="tick"></div></div></div>
     <div class="credit"><img class="on-dark" src="img/logo-ght-branco.png" alt="GHT"><img class="on-light" src="img/logo-ght.png" alt="GHT"><span><b>Feito por quem é da casa.</b> Sugestões de fontes, clientes, fornecedores e prestadores são bem-vindas: fale com a equipe do Radar.</span></div>
   </div></div>
 </section>
@@ -357,7 +369,7 @@ function render(){
   const u=new Date(D.atualizado);$('#upd').textContent='Atualizado em '+u.toLocaleString('pt-BR',{dateStyle:'short',timeStyle:'short',timeZone:'America/Sao_Paulo'});
   $('#headline').textContent=D.manchete;$('#lede').textContent=D.resumo;
   $('#status').innerHTML=D.status.map((s,i)=>`<div class="cell ${esc(s.nivel)}" style="animation-delay:${i*40}ms" title="${esc(s.regra)}"><span class="c">${esc(s.cat)}</span><span class="v">${esc(s.valor)}</span>${s.rotulo!==s.valor?`<span class="t">${esc(s.rotulo)}</span>`:''}<span class="n">${esc(s.nota)}</span><span class="s">${esc(s.data)} · ${esc(s.fonte)}</span></div>`).join('');
-  const tk=D.blocos.flatMap(b=>b.noticias.map(n=>`<span><i>${esc(({b1:'CÂMBIO',b2:'COMMODITIES',b3:'COMEX',b4:'TRANSPORTE',b5:'CLIENTES',b6:'GHT',b8:'TECNOLOGIA'}[b.id]||'RADAR'))}</i>${esc(n.titulo)}</span>`)).join('');$('#tick').innerHTML=tk+'<span aria-hidden="true" style="display:contents">'+tk+'</span>';
+  const tk=D.blocos.flatMap(b=>b.noticias.map(n=>`<a href="#${esc(b.id)}"><i>${esc(({b1:'CÂMBIO',b2:'COMMODITIES',b3:'COMEX',b4:'TRANSPORTE',b5:'CLIENTES',b6:'GHT',b8:'TECNOLOGIA'}[b.id]||'RADAR'))}</i>${esc(n.titulo)}</a>`)).join('');$('#tick').innerHTML=tk+'<span aria-hidden="true" style="display:contents">'+tk+'</span>';
   $('#rules tbody').innerHTML=D.status.map(s=>`<tr><td>${esc(s.cat)}</td><td>${esc(s.regra)}</td></tr>`).join('');
   $('#pend').innerHTML=D.pendencias.map(p=>`<li>${esc(p)}</li>`).join('');
   const on=new Set(D.com_noticia||[]);
