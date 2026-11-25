@@ -16,6 +16,7 @@ Requer Python 3.9+ e acesso HTTPS de saída a api.bcb.gov.br. Sem dependências 
 Em caso de falha numa série, mantém o valor anterior e sai com código 1 (para o log/alerta).
 """
 import json
+import time
 import sys
 import urllib.request
 from datetime import date, datetime, timedelta
@@ -29,10 +30,18 @@ def sgs(codigo, inicio=None, fim=None, ultimos=None):
         url = f"{BASE.format(codigo)}/ultimos/{ultimos}?formato=json"
     else:
         url = f"{BASE.format(codigo)}?formato=json&dataInicial={inicio:%d/%m/%Y}&dataFinal={fim:%d/%m/%Y}"
-    req = urllib.request.Request(url, headers=UA)
-    with urllib.request.urlopen(req, timeout=30) as r:
-        dados = json.load(r)
-    return [[d["data"], float(d["valor"])] for d in dados]
+    hdr = {**UA, "Cache-Control": "no-cache", "Pragma": "no-cache"}
+    ultimo_erro = None
+    for tentativa in range(3):
+        try:
+            req = urllib.request.Request(url, headers=hdr)
+            with urllib.request.urlopen(req, timeout=30) as r:
+                dados = json.load(r)
+            return [[d["data"], float(d["valor"])] for d in dados]
+        except Exception as e:  # 304, timeout, instabilidade do BCB
+            ultimo_erro = e
+            time.sleep(5 * (tentativa + 1))
+    raise ultimo_erro
 
 
 def br(v, casas=2):
@@ -119,8 +128,10 @@ def main(caminho):
         json.dump(d, f, ensure_ascii=False, separators=(",", ":"))
 
     if falhas:
-        print("Falhas:", *falhas, sep="\n  ")
-        sys.exit(1)
+        print("Avisos (mantido o valor anterior):", *falhas, sep="\n  ")
+        # Só interrompe se o câmbio diário falhou; indicadores mensais podem esperar o próximo dia.
+        if any(f.startswith(("SGS 1:", "SGS 21619:")) for f in falhas):
+            sys.exit(1)
     print("Indicadores atualizados.")
 
 
