@@ -227,6 +227,13 @@ ul{padding-left:20px;margin:8px 0}li{margin-bottom:6px}
 .eb.sm{display:inline-flex;align-items:center;font:700 11px "Red Hat Text",sans-serif;text-transform:uppercase;letter-spacing:.05em;color:var(--ink);background:color-mix(in srgb,var(--am) 30%,transparent);border:1px solid color-mix(in srgb,var(--am) 70%,transparent);padding:3px 10px;border-radius:14px}
 .eb.sm{white-space:nowrap}@media(max-width:700px){.meta-r .eb.sm{font-size:8px;padding:2px 7px;letter-spacing:.03em}.meta-r{gap:4px}}
 .team-ft{margin:18px 0 0;padding-top:16px;border-top:1px solid var(--line);font-size:15px;color:var(--mute)}.team-ft b{color:var(--ink)}
+.herobg{position:relative;background:url('img/fundo-capa-escuro.svg') right center/cover no-repeat;min-height:min(78vh,760px);display:flex;align-items:center}
+@media(prefers-color-scheme:light){:root:not([data-theme=dark]) .herobg{background-image:url('img/fundo-capa-claro.svg')}}
+:root[data-theme=light] .herobg{background-image:url('img/fundo-capa-claro.svg')}
+.herobg .hero{grid-template-columns:minmax(0,1fr);width:100%}
+.herobg .hero>div{max-width:640px}
+.herobg .hero h1{font-size:clamp(44px,6.2vw,84px)}
+@media(max-width:900px){.herobg{background-position:70% center;min-height:auto}.herobg .hero>div{background:color-mix(in srgb,var(--bg) 78%,transparent);border-radius:20px;padding:4px 0}}
 </style>
 <script>new MutationObserver(()=>{for(const c of document.querySelectorAll('.stack td:not([data-l])')){let i=0,p=c;while(p=p.previousElementSibling)i+=p.colSpan;c.dataset.l=c.closest('table').rows[0].cells[i]?.textContent||''}}).observe(document,{childList:true,subtree:true})</script>
 </head>
@@ -254,7 +261,7 @@ ul{padding-left:20px;margin:8px 0}li{margin-bottom:6px}
 </header>
 <main id="views">
 <section class="view" id="inicio">
-  <div class="band"><div class="w hero">
+  <div class="band herobg"><div class="w hero">
     <div>
       <div class="hbrand"><svg class="rsym" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" aria-hidden="true">
   <defs><clipPath id="rIn2"><circle cx="60" cy="60" r="35"/></clipPath></defs>
@@ -282,8 +289,9 @@ ul{padding-left:20px;margin:8px 0}li{margin-bottom:6px}
       </ul>
       <div class="cta"><a class="btn pri" href="#b1">Começar pelo Bloco 1 →</a><a class="btn" href="#pulso">Pulso do dia</a></div>
     </div>
-    <figure><img src="img/como-ler.jpg" alt="Equipe analisando indicadores em um monitor"><figcaption><span id="capa-ed">Atualizado em dias úteis</span><span>Fontes públicas citadas em cada item</span></figcaption></figure>
-  </div><div class="w">
+    
+  </div></div>
+  <div class="band" style="padding-top:0"><div class="w">
   <div class="team" id="equipe" aria-labelledby="eq-t">
       <div class="sec-h"><h2 id="eq-t">Quem faz o Radar</h2></div>
       <p class="sub">Idealizado e mantido por colaboradores de Logística e Compras do GHT.</p>
@@ -367,7 +375,7 @@ function fxPanel(){
    </div></div>`;
 }
 function render(){
-  $('#ed').textContent=D.edicao;$('#pulso-ed').textContent=D.edicao;$('#capa-ed').textContent=D.edicao;
+  $('#ed').textContent=D.edicao;$('#pulso-ed').textContent=D.edicao;
   const u=new Date(D.atualizado);$('#upd').textContent='Atualizado em '+u.toLocaleString('pt-BR',{dateStyle:'short',timeStyle:'short',timeZone:'America/Sao_Paulo'});
   $('#headline').textContent=D.manchete;$('#lede').textContent=D.resumo;
   $('#status').innerHTML=D.status.map((s,i)=>`<div class="cell ${esc(s.nivel)}" style="animation-delay:${i*40}ms" title="${esc(s.regra)}"><span class="c">${esc(s.cat)}</span><span class="v">${esc(s.valor)}</span>${s.rotulo!==s.valor?`<span class="t">${esc(s.rotulo)}</span>`:''}<span class="n">${esc(s.nota)}</span><span class="s">${esc(s.data)} · ${esc(s.fonte)}</span></div>`).join('');
