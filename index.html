@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Radar Supply Chain GHT</title>
-<link rel="icon" href="img/logo-circulo.png">
+<link rel="icon" href="img/radar-icone.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="img/radar-touch.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;800&family=Red+Hat+Text:wght@400;500;700&display=swap">
 <style>
@@ -211,20 +211,53 @@ ul{padding-left:20px;margin:8px 0}li{margin-bottom:6px}
 .pp a{display:inline-flex;align-items:center;gap:6px;margin-top:8px;font:700 12px "Red Hat Text",sans-serif;color:var(--ink);text-decoration:none;padding:4px 10px;border-radius:12px;border:1px solid var(--line)}
 .pp a:hover{border-color:#0a66c2;color:#0a66c2}
 .pp a svg{width:13px;height:13px;fill:currentColor}
+.rbrand{display:inline-flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none}.rbrand .rsym{width:34px;height:34px;flex:none}
+.hbrand{display:flex;align-items:center;gap:16px;flex-wrap:wrap}.hbrand .rsym{width:68px;height:68px;color:var(--ink)}
+@media(max-width:700px){.rbrand b{display:none}.rbrand .rsym{width:30px;height:30px}}
 </style>
 <script>new MutationObserver(()=>{for(const c of document.querySelectorAll('.stack td:not([data-l])')){let i=0,p=c;while(p=p.previousElementSibling)i+=p.colSpan;c.dataset.l=c.closest('table').rows[0].cells[i]?.textContent||''}}).observe(document,{childList:true,subtree:true})</script>
 </head>
 <body>
 <div class="r">
 <header class="top">
-  <div class="bar"><a href="#inicio" class="logo" aria-label="Capa do Radar"><img class="on-dark" src="img/logo-ght-branco.png" alt="GHT Grupo Hidrau Torque"><img class="on-light" src="img/logo-ght.png" alt="GHT Grupo Hidrau Torque"></a><b>Radar Estratégico de Supply Chain</b><span class="sp"></span><span id="ed">Carregando…</span><span id="upd"></span></div>
+  <div class="bar"><a href="#inicio" class="logo" aria-label="Capa do Radar"><img class="on-dark" src="img/logo-ght-branco.png" alt="GHT Grupo Hidrau Torque"><img class="on-light" src="img/logo-ght.png" alt="GHT Grupo Hidrau Torque"></a><a href="#inicio" class="rbrand"><svg class="rsym" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" aria-hidden="true">
+  <defs><clipPath id="rIn1"><circle cx="60" cy="60" r="35"/></clipPath></defs>
+  <path d="M60 60 L98.18 21.82 A54 54 0 0 1 113.2 50.6 Z" fill="#F2C200" opacity=".24"/>
+  <g clip-path="url(#rIn1)">
+    <path d="M18 100 L38 70 L46 66 L60 40 L72 60 L80 56 L104 100 Z" fill="#F2C200"/>
+    <path d="M60 40 L56 72 L48 70 Z" fill="#FFE27A"/>
+    <path d="M38 70 L46 66 L36 84 Z" fill="#FFE27A"/>
+    <path d="M60 40 L66 76 L72 60 Z" fill="#D9A900"/>
+    <path d="M80 56 L76 72 L86 66 Z" fill="#FFE27A"/>
+  </g>
+  <circle cx="60" cy="60" r="54" fill="none" stroke="currentColor" stroke-width="4.5"/>
+  <circle cx="60" cy="60" r="35" fill="none" stroke="currentColor" stroke-width="4.5"/>
+  <line x1="58" y1="62" x2="98.2" y2="21.8" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/>
+  <circle cx="86.5" cy="33.5" r="7" fill="#F2C200" stroke="currentColor" stroke-width="2.5"/>
+</svg>
+<b>Radar Estratégico de Supply Chain</b></a><span class="sp"></span><span id="ed">Carregando…</span><span id="upd"></span></div>
   <nav class="tabsnav" aria-label="Blocos"><a href="#inicio" class="home">Capa</a><a href="#b1" style="--c:var(--am)">1 Câmbio</a><a href="#b2" style="--c:var(--ro)">2 Commodities</a><a href="#b3" style="--c:var(--az)">3 Comex</a><a href="#b4" style="--c:var(--la)">4 Transporte</a><a href="#b5" style="--c:var(--co)">5 Clientes</a><a href="#b6" style="--c:var(--ght)">6 Notícias GHT</a><a href="#b7" style="--c:var(--az2)">7 Ecossistema</a><a href="#b8" style="--c:var(--vd)">8 Tecnologia</a><a href="#metodo">Como ler</a></nav>
 </header>
 <main id="views">
 <section class="view" id="inicio">
   <div class="band"><div class="w hero">
     <div>
-      <span class="eb">Desenvolvido internamente · GHT</span>
+      <div class="hbrand"><svg class="rsym" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" aria-hidden="true">
+  <defs><clipPath id="rIn2"><circle cx="60" cy="60" r="35"/></clipPath></defs>
+  <path d="M60 60 L98.18 21.82 A54 54 0 0 1 113.2 50.6 Z" fill="#F2C200" opacity=".24"/>
+  <g clip-path="url(#rIn2)">
+    <path d="M18 100 L38 70 L46 66 L60 40 L72 60 L80 56 L104 100 Z" fill="#F2C200"/>
+    <path d="M60 40 L56 72 L48 70 Z" fill="#FFE27A"/>
+    <path d="M38 70 L46 66 L36 84 Z" fill="#FFE27A"/>
+    <path d="M60 40 L66 76 L72 60 Z" fill="#D9A900"/>
+    <path d="M80 56 L76 72 L86 66 Z" fill="#FFE27A"/>
+  </g>
+  <circle cx="60" cy="60" r="54" fill="none" stroke="currentColor" stroke-width="4.5"/>
+  <circle cx="60" cy="60" r="35" fill="none" stroke="currentColor" stroke-width="4.5"/>
+  <line x1="58" y1="62" x2="98.2" y2="21.8" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/>
+  <circle cx="86.5" cy="33.5" r="7" fill="#F2C200" stroke="currentColor" stroke-width="2.5"/>
+</svg>
+<span class="eb">Desenvolvido internamente · GHT</span></div>
       <h1>Radar Estratégico de <span>Supply Chain</span></h1>
       <p class="intro">Um painel criado por colaboradores do Grupo Hidrau Torque para acompanhar, em um só lugar, o que acontece fora da empresa e pode mudar custos, prazos e demanda aqui dentro. Cada notícia vem com fonte, data e uma sugestão de ação para as áreas.</p>
       <ul class="pts">

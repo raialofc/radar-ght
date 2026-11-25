@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Radar">
+  <defs><clipPath id="rIn"><circle cx="60" cy="60" r="35"/></clipPath></defs>
+  <path d="M60 60 L98.18 21.82 A54 54 0 0 1 113.2 50.6 Z" fill="#F2C200" opacity=".24"/>
+  <g clip-path="url(#rIn)">
+    <path d="M18 100 L38 70 L46 66 L60 40 L72 60 L80 56 L104 100 Z" fill="#F2C200"/>
+    <path d="M60 40 L56 72 L48 70 Z" fill="#FFE27A"/>
+    <path d="M38 70 L46 66 L36 84 Z" fill="#FFE27A"/>
+    <path d="M60 40 L66 76 L72 60 Z" fill="#D9A900"/>
+    <path d="M80 56 L76 72 L86 66 Z" fill="#FFE27A"/>
+  </g>
+  <circle cx="60" cy="60" r="54" fill="none" stroke="#1A1A1A" stroke-width="4.5"/>
+  <circle cx="60" cy="60" r="35" fill="none" stroke="#1A1A1A" stroke-width="4.5"/>
+  <line x1="58" y1="62" x2="98.2" y2="21.8" stroke="#1A1A1A" stroke-width="4.5" stroke-linecap="round"/>
+  <circle cx="86.5" cy="33.5" r="7" fill="#F2C200" stroke="#1A1A1A" stroke-width="2.5"/>
+</svg>
