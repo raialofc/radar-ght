@@ -197,6 +197,20 @@ ul{padding-left:20px;margin:8px 0}li{margin-bottom:6px}
 .pager .nx{margin-left:auto;align-items:flex-end}
 @media(max-width:700px){.top .bar{flex-wrap:nowrap;padding:8px 16px 2px;font-size:13px}.top .bar>b,#upd{display:none}.top .logo img{height:30px}.tabsnav a{min-height:42px;padding:0 10px}}
 .kb{font-size:12px;color:var(--mute);margin-top:10px}
+
+.team{margin-top:44px;padding:24px 26px;border-radius:var(--r);background:var(--bg2);border:1px solid var(--line)}
+.team .sec-h h2{font-size:clamp(22px,2.4vw,28px)}
+.team .sub{margin:4px 0 0;color:var(--mute);font-size:15px}
+.ppl{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:20px}
+@media(max-width:1000px){.ppl{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:430px){.ppl{grid-template-columns:minmax(0,1fr)}}
+.pp{display:flex;align-items:center;gap:14px;padding:14px;border-radius:16px;background:var(--bg);border:1px solid var(--line)}
+.pp img{flex:none;width:72px;height:72px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 3px var(--bg),0 0 0 5px var(--c)}
+.pp b{display:block;font:800 16px/1.2 "Red Hat Display",sans-serif;color:var(--ink)}
+.pp span{display:block;font-size:13px;line-height:1.35;color:var(--mute);margin-top:2px}
+.pp a{display:inline-flex;align-items:center;gap:6px;margin-top:8px;font:700 12px "Red Hat Text",sans-serif;color:var(--ink);text-decoration:none;padding:4px 10px;border-radius:12px;border:1px solid var(--line)}
+.pp a:hover{border-color:#0a66c2;color:#0a66c2}
+.pp a svg{width:13px;height:13px;fill:currentColor}
 </style>
 <script>new MutationObserver(()=>{for(const c of document.querySelectorAll('.stack td:not([data-l])')){let i=0,p=c;while(p=p.previousElementSibling)i+=p.colSpan;c.dataset.l=c.closest('table').rows[0].cells[i]?.textContent||''}}).observe(document,{childList:true,subtree:true})</script>
 </head>
@@ -222,6 +236,12 @@ ul{padding-left:20px;margin:8px 0}li{margin-bottom:6px}
       <div class="cta"><a class="btn pri" href="#b1">Começar pelo Bloco 1 →</a><a class="btn" href="#pulso">Pulso do dia</a></div>
     </div>
     <figure><img src="img/como-ler.jpg" alt="Equipe analisando indicadores em um monitor"><figcaption><span id="capa-ed">Atualizado em dias úteis</span><span>Fontes públicas citadas em cada item</span></figcaption></figure>
+  </div><div class="w">
+  <div class="team" id="equipe" aria-labelledby="eq-t">
+      <div class="sec-h"><h2 id="eq-t">Quem faz o Radar</h2></div>
+      <p class="sub">Idealizado e mantido por colaboradores de Logística e Compras do GHT.</p>
+      <div class="ppl"><div class="pp" style="--c:var(--am)"><img src="img/equipe/kelvin.jpg" alt="Foto de Kelvin Barbosa" loading="lazy"><div><b>Kelvin Barbosa</b><span>Analista de Operação Logística</span></div></div><div class="pp" style="--c:var(--ro)"><img src="img/equipe/rennys.jpg" alt="Foto de Rennys Rogger" loading="lazy"><div><b>Rennys Rogger</b><span>Comprador Sênior</span><a href="https://www.linkedin.com/in/rennys-rogger-460322302" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>LinkedIn</a></div></div><div class="pp" style="--c:var(--az)"><img src="img/equipe/vinicius.jpg" alt="Foto de Vinicius Rocha" loading="lazy"><div><b>Vinicius Rocha</b><span>Comprador Sênior</span><a href="https://www.linkedin.com/in/vinicius-dias-rocha-935457223/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>LinkedIn</a></div></div><div class="pp" style="--c:var(--la)"><img src="img/equipe/erikson.jpg" alt="Foto de Erikson Miranda" loading="lazy"><div><b>Erikson Miranda</b><span>Assistente de Compras</span><a href="https://www.linkedin.com/in/erikson-miranda-01aa852b8" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>LinkedIn</a></div></div></div>
+    </div>
   </div></div>
   <div class="band alt pulse" id="pulso"><div class="w">
     <div class="sec-h"><h2>Pulso do dia</h2><span class="meta" id="pulso-ed"></span></div>
@@ -234,7 +254,7 @@ ul{padding-left:20px;margin:8px 0}li{margin-bottom:6px}
     <div class="sec-h"><h2>Acesse os blocos</h2><span class="meta">Clique em um bloco para abrir. Use as setas ← → do teclado para avançar na apresentação.</span></div>
     <div class="tiles" id="tiles"></div>
     <div class="tick" aria-label="Últimas" style="margin-top:28px"><b>ÚLTIMAS</b><div class="vp"><div class="tr" id="tick"></div></div></div>
-    <div class="credit"><img class="on-dark" src="img/logo-ght-branco.png" alt="GHT"><img class="on-light" src="img/logo-ght.png" alt="GHT"><span><b>Feito por quem é da casa.</b> O Radar foi idealizado e desenvolvido internamente no GHT, a partir das necessidades de Compras, Estoque, Comercial e Logística. Sugestões de fontes, clientes, fornecedores e prestadores são bem-vindas.</span></div>
+    <div class="credit"><img class="on-dark" src="img/logo-ght-branco.png" alt="GHT"><img class="on-light" src="img/logo-ght.png" alt="GHT"><span><b>Feito por quem é da casa.</b> Sugestões de fontes, clientes, fornecedores e prestadores são bem-vindas: fale com a equipe do Radar.</span></div>
   </div></div>
 </section>
 <section class="band view" id="metodo" hidden><div class="w">
