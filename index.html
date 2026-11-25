@@ -1,4 +1,3 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -137,24 +136,108 @@ ul{padding-left:20px;margin:8px 0}li{margin-bottom:6px}
 .emp .nw{border-top:1px solid var(--line);padding-top:10px;display:grid;gap:4px}
 .emp .nw a{color:var(--ink);font-weight:600;text-decoration:none}.emp .nw a:hover{text-decoration:underline}
 .emp .vz{font-size:14px;color:var(--mute);border-top:1px dashed var(--line);padding-top:10px}
+
+/* CAPA + ABAS */
+.top{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 90%,transparent);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.top .bar{display:flex;align-items:center;gap:8px 18px;flex-wrap:wrap;padding:10px max(5vw,16px) 6px;font-size:14px;color:var(--mute)}
+.top .bar b{color:var(--ink)}.top .bar .sp{flex:1}
+.top .logo img{height:40px}
+.tabsnav{display:flex;gap:4px;overflow-x:auto;padding:0 max(5vw,16px);scrollbar-width:none}.tabsnav::-webkit-scrollbar{display:none}
+.tabsnav a{flex:none;display:flex;align-items:center;gap:8px;min-height:46px;padding:0 12px;color:var(--mute);text-decoration:none;font:700 13px "Red Hat Text",sans-serif;text-transform:uppercase;letter-spacing:.03em;border-bottom:3px solid transparent}
+.tabsnav a::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--c,var(--mute))}
+.tabsnav a:hover{color:var(--ink)}
+.tabsnav a[aria-current=page]{color:var(--ink);border-bottom-color:var(--c,var(--ink))}
+.tabsnav a.home::before{display:none}
+.view[hidden]{display:none!important}
+.view{animation:vin .35s ease both}@keyframes vin{from{opacity:0;transform:translateY(8px)}}
+@media(prefers-reduced-motion:reduce){.view{animation:none}}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:28px 56px;align-items:center}
+@media(max-width:900px){.hero{grid-template-columns:minmax(0,1fr)}}
+.hero .eb{display:inline-flex;align-items:center;gap:8px;font:700 13px "Red Hat Text",sans-serif;text-transform:uppercase;letter-spacing:.05em;color:var(--ink);background:color-mix(in srgb,var(--am) 30%,transparent);border:1px solid color-mix(in srgb,var(--am) 70%,transparent);padding:6px 12px;border-radius:20px}
+.hero h1{font-size:clamp(38px,5.4vw,66px);margin:18px 0 0;line-height:1}
+.hero h1 span{color:var(--ght)}
+.hero .intro{font-size:18px;line-height:1.6;color:var(--mute);margin:20px 0 0;max-width:58ch}
+.hero .pts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 18px;margin:24px 0 0;padding:0;list-style:none}
+.hero .pts li{display:flex;gap:10px;font-size:15px;line-height:1.4;margin:0}.hero .pts li::before{content:"";flex:none;width:8px;height:8px;margin-top:7px;border-radius:50%;background:var(--c)}
+@media(max-width:520px){.hero .pts{grid-template-columns:minmax(0,1fr)}}
+.hero figure{margin:0;position:relative;border-radius:28px;overflow:hidden;aspect-ratio:16/10;box-shadow:0 30px 60px -30px rgba(0,0,0,.45)}
+.hero figure img{width:100%;height:100%;object-fit:cover;display:block}
+.hero figcaption{position:absolute;left:16px;bottom:16px;right:16px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.hero figcaption span{background:rgba(12,10,16,.78);color:#fff;font-size:13px;padding:6px 12px;border-radius:14px;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:0 20px;border-radius:24px;font:700 15px "Red Hat Text",sans-serif;text-decoration:none;border:1px solid var(--line);color:var(--ink);background:var(--bg2);cursor:pointer}
+.btn.pri{background:var(--am);border-color:var(--am);color:#111014}
+.btn:hover{filter:brightness(1.05)}
+.sec-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.sec-h .meta{font-size:14px}
+.pulse .hl2{font:800 clamp(22px,2.6vw,30px)/1.15 "Red Hat Display",sans-serif;margin:10px 0 0;text-wrap:balance}
+.pulse .lede{margin-top:10px}
+.pulse .grid{margin-top:22px}
+.pulse .cell{min-height:132px;padding:16px 18px}.pulse .cell .v{font-size:clamp(22px,2.4vw,28px)}
+.tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:22px}
+@media(max-width:1000px){.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.tiles{grid-template-columns:minmax(0,1fr)}}
+.tile{position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-height:230px;border-radius:var(--r);overflow:hidden;text-decoration:none;color:#fff;isolation:isolate;background:#111014;box-shadow:0 18px 40px -28px rgba(0,0,0,.6)}
+.tile::before{content:"";position:absolute;inset:0;z-index:-2;background:var(--img) center/cover no-repeat;transition:transform .5s ease}
+.tile::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(12,10,16,.05) 0,rgba(12,10,16,.55) 45%,rgba(12,10,16,.92) 100%)}
+.tile:hover::before,.tile:focus-visible::before{transform:scale(1.06)}
+.tile .in{padding:18px 18px 16px;display:flex;flex-direction:column;gap:6px}
+.tile .n{font:800 12px "Red Hat Display",sans-serif;text-transform:uppercase;letter-spacing:.06em;display:flex;align-items:center;gap:7px}
+.tile .n::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--c)}
+.tile h3{font-weight:800;font-size:21px;line-height:1.15;color:#fff}
+.tile p{margin:0;font-size:14px;line-height:1.4;color:rgba(255,255,255,.82)}
+.tile .ft{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:rgba(255,255,255,.75);border-top:1px solid rgba(255,255,255,.18);padding-top:8px;margin-top:4px}
+.tile .ft b{color:#fff}
+.tile.how{background:var(--bg2);color:var(--ink);box-shadow:none;border:1px dashed var(--line)}.tile.how::after{display:none}.tile.how h3{color:var(--ink)}.tile.how p,.tile.how .ft{color:var(--mute);border-color:var(--line)}
+.credit{display:flex;gap:14px;align-items:center;flex-wrap:wrap;padding:16px 20px;border-radius:var(--r);background:var(--bg2);border:1px solid var(--line);font-size:15px;color:var(--mute);margin-top:28px}
+.credit b{color:var(--ink)}.credit img{height:30px;width:auto}
+.pager{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:36px;padding-top:20px;border-top:1px solid var(--line)}
+.pager .btn small{display:block;font-weight:500;font-size:12px;color:var(--mute)}
+.pager .btn{min-height:56px;flex-direction:column;align-items:flex-start;justify-content:center;gap:0;padding:6px 20px}
+.pager .nx{margin-left:auto;align-items:flex-end}
+@media(max-width:700px){.top .bar{flex-wrap:nowrap;padding:8px 16px 2px;font-size:13px}.top .bar>b,#upd{display:none}.top .logo img{height:30px}.tabsnav a{min-height:42px;padding:0 10px}}
+.kb{font-size:12px;color:var(--mute);margin-top:10px}
 </style>
 <script>new MutationObserver(()=>{for(const c of document.querySelectorAll('.stack td:not([data-l])')){let i=0,p=c;while(p=p.previousElementSibling)i+=p.colSpan;c.dataset.l=c.closest('table').rows[0].cells[i]?.textContent||''}}).observe(document,{childList:true,subtree:true})</script>
 </head>
 <body>
 <div class="r">
-<header class="band" id="topo"><div class="w">
-  <div class="kick"><span class="logo" aria-label="GHT Grupo Hidrau Torque"><img class="on-dark" src="img/logo-ght-branco.png" alt="GHT Grupo Hidrau Torque"><img class="on-light" src="img/logo-ght.png" alt="GHT Grupo Hidrau Torque"></span><b>Radar Estratégico de Supply Chain</b><span id="ed">Carregando…</span><span id="upd"></span></div>
-  <div class="tick" aria-label="Últimas"><b>ÚLTIMAS</b><div class="vp"><div class="tr" id="tick"></div></div></div>
-  <div class="hd"><h1 id="headline">Radar Estratégico de Supply Chain</h1>
-  <p class="lede" id="lede"></p></div>
-  <div class="grid" id="status" aria-label="Painel executivo"></div>
-  <div class="legend"><span class="k" style="--c:var(--az)">Normal</span><span class="k" style="--c:var(--am)">Atenção</span><span class="k" style="--c:var(--vivo)">Alerta</span><span class="k" style="--c:var(--bg3)">Sem dado</span></div>
-</div></header>
-<nav class="scroll" aria-label="Seções">
-  <a href="#b1" style="--c:var(--am)">1 Câmbio</a><a href="#b2" style="--c:var(--ro)">2 Commodities</a><a href="#b3" style="--c:var(--az)">3 Comex</a><a href="#b4" style="--c:var(--la)">4 Transporte</a><a href="#b5" style="--c:var(--co)">5 Clientes</a><a href="#b6" style="--c:var(--ght)">6 Notícias GHT</a><a href="#b7" style="--c:var(--az2)">7 Ecossistema</a><a href="#b8" style="--c:var(--vd)">8 Tecnologia</a><a href="#metodo">Como ler</a>
-</nav>
-<main id="blocks"></main>
-<section class="band" id="metodo"><div class="w">
+<header class="top">
+  <div class="bar"><a href="#inicio" class="logo" aria-label="Capa do Radar"><img class="on-dark" src="img/logo-ght-branco.png" alt="GHT Grupo Hidrau Torque"><img class="on-light" src="img/logo-ght.png" alt="GHT Grupo Hidrau Torque"></a><b>Radar Estratégico de Supply Chain</b><span class="sp"></span><span id="ed">Carregando…</span><span id="upd"></span></div>
+  <nav class="tabsnav" aria-label="Blocos"><a href="#inicio" class="home">Capa</a><a href="#b1" style="--c:var(--am)">1 Câmbio</a><a href="#b2" style="--c:var(--ro)">2 Commodities</a><a href="#b3" style="--c:var(--az)">3 Comex</a><a href="#b4" style="--c:var(--la)">4 Transporte</a><a href="#b5" style="--c:var(--co)">5 Clientes</a><a href="#b6" style="--c:var(--ght)">6 Notícias GHT</a><a href="#b7" style="--c:var(--az2)">7 Ecossistema</a><a href="#b8" style="--c:var(--vd)">8 Tecnologia</a><a href="#metodo">Como ler</a></nav>
+</header>
+<main id="views">
+<section class="view" id="inicio">
+  <div class="band"><div class="w hero">
+    <div>
+      <span class="eb">Desenvolvido internamente · GHT</span>
+      <h1>Radar Estratégico de <span>Supply Chain</span></h1>
+      <p class="intro">Um painel criado por colaboradores do Grupo Hidrau Torque para acompanhar, em um só lugar, o que acontece fora da empresa e pode mudar custos, prazos e demanda aqui dentro. Cada notícia vem com fonte, data e uma sugestão de ação para as áreas.</p>
+      <ul class="pts">
+        <li style="--c:var(--am)">Câmbio, juros e inflação com dados do Banco Central</li>
+        <li style="--c:var(--ro)">Matérias-primas que pesam no custo dos nossos produtos</li>
+        <li style="--c:var(--la)">Comex, frete marítimo e transporte rodoviário</li>
+        <li style="--c:var(--co)">Clientes, ecossistema GHT e tecnologia</li>
+      </ul>
+      <div class="cta"><a class="btn pri" href="#b1">Começar pelo Bloco 1 →</a><a class="btn" href="#pulso">Pulso do dia</a></div>
+    </div>
+    <figure><img src="img/como-ler.jpg" alt="Equipe analisando indicadores em um monitor"><figcaption><span id="capa-ed">Atualizado em dias úteis</span><span>Fontes públicas citadas em cada item</span></figcaption></figure>
+  </div></div>
+  <div class="band alt pulse" id="pulso"><div class="w">
+    <div class="sec-h"><h2>Pulso do dia</h2><span class="meta" id="pulso-ed"></span></div>
+    <p class="hl2" id="headline"></p>
+    <p class="lede" id="lede"></p>
+    <div class="grid" id="status" aria-label="Painel executivo"></div>
+    <div class="legend"><span class="k" style="--c:var(--az)">Normal</span><span class="k" style="--c:var(--am)">Atenção</span><span class="k" style="--c:var(--vivo)">Alerta</span><span class="k" style="--c:var(--bg3)">Sem dado</span></div>
+  </div></div>
+  <div class="band"><div class="w">
+    <div class="sec-h"><h2>Acesse os blocos</h2><span class="meta">Clique em um bloco para abrir. Use as setas ← → do teclado para avançar na apresentação.</span></div>
+    <div class="tiles" id="tiles"></div>
+    <div class="tick" aria-label="Últimas" style="margin-top:28px"><b>ÚLTIMAS</b><div class="vp"><div class="tr" id="tick"></div></div></div>
+    <div class="credit"><img class="on-dark" src="img/logo-ght-branco.png" alt="GHT"><img class="on-light" src="img/logo-ght.png" alt="GHT"><span><b>Feito por quem é da casa.</b> O Radar foi idealizado e desenvolvido internamente no GHT, a partir das necessidades de Compras, Estoque, Comercial e Logística. Sugestões de fontes, clientes, fornecedores e prestadores são bem-vindas.</span></div>
+  </div></div>
+</section>
+<section class="band view" id="metodo" hidden><div class="w">
   <div class="bh"><h2>Como ler este radar</h2></div>
   <div class="method" style="margin-top:20px">
     <div class="panel">
@@ -169,6 +252,7 @@ ul{padding-left:20px;margin:8px 0}li{margin-bottom:6px}
     </div>
   </div>
 </div></section>
+</main>
 <footer class="band foot"><div class="w fw"><img class="on-dark" src="img/logo-ght-branco.png" alt="GHT" height="36"><img class="on-light" src="img/logo-ght.png" alt="GHT" height="36"><span>Uso interno GHT · Fontes públicas citadas em cada item · As recomendações são sugestões para avaliação das áreas, não decisões.</span></div></footer>
 </div>
 <script>
@@ -216,7 +300,7 @@ function fxPanel(){
    </div></div>`;
 }
 function render(){
-  $('#ed').textContent=D.edicao;
+  $('#ed').textContent=D.edicao;$('#pulso-ed').textContent=D.edicao;$('#capa-ed').textContent=D.edicao;
   const u=new Date(D.atualizado);$('#upd').textContent='Atualizado em '+u.toLocaleString('pt-BR',{dateStyle:'short',timeStyle:'short',timeZone:'America/Sao_Paulo'});
   $('#headline').textContent=D.manchete;$('#lede').textContent=D.resumo;
   $('#status').innerHTML=D.status.map((s,i)=>`<div class="cell ${esc(s.nivel)}" style="animation-delay:${i*40}ms" title="${esc(s.regra)}"><span class="c">${esc(s.cat)}</span><span class="v">${esc(s.valor)}</span>${s.rotulo!==s.valor?`<span class="t">${esc(s.rotulo)}</span>`:''}<span class="n">${esc(s.nota)}</span><span class="s">${esc(s.data)} · ${esc(s.fonte)}</span></div>`).join('');
@@ -224,25 +308,48 @@ function render(){
   $('#rules tbody').innerHTML=D.status.map(s=>`<tr><td>${esc(s.cat)}</td><td>${esc(s.regra)}</td></tr>`).join('');
   $('#pend').innerHTML=D.pendencias.map(p=>`<li>${esc(p)}</li>`).join('');
   const on=new Set(D.com_noticia||[]);
-  $('#blocks').innerHTML=D.blocos.map((b,i)=>`<section class="band ${i%2?'alt':''}${bgCls(b.fundo)}" id="${esc(b.id)}"${bgAttr(b.fundo)}><div class="w">
+  const B=D.blocos,LBL={b1:'CÂMBIO',b2:'COMMODITIES',b3:'COMEX',b4:'TRANSPORTE',b5:'CLIENTES',b6:'GHT',b7:'ECOSSISTEMA',b8:'TECNOLOGIA'};
+  const pager=i=>{const p=B[i-1],n=B[i+1];return `<div class="pager">${p?`<a class="btn" href="#${esc(p.id)}"><small>← Bloco ${esc(p.num)}</small>${esc(p.titulo)}</a>`:`<a class="btn" href="#inicio"><small>←</small>Capa</a>`}${n?`<a class="btn pri nx" href="#${esc(n.id)}"><small style="color:#2a2400">Bloco ${esc(n.num)} →</small>${esc(n.titulo)}</a>`:`<a class="btn pri nx" href="#metodo"><small style="color:#2a2400">→</small>Como ler o radar</a>`}</div>`};
+  const html=B.map((b,i)=>`<section class="band view${bgCls(b.fundo)}" id="${esc(b.id)}"${bgAttr(b.fundo)} hidden><div class="w">
    <div class="bh"><span class="num" style="--c:var(${BC[b.id]||'--az'})">Bloco ${esc(b.num)}</span><h2>${esc(b.titulo)}</h2></div><p class="obj">${esc(b.objetivo)}</p>
    ${b.id==='b1'?fxPanel():''}${prices(b.precos)}${matriz(b.materias)}
    ${b.id==='b5'?`<div class="panel">${Object.entries(D.clientes).map(([s,l])=>`<div class="seg"><span>${esc(s)}</span><div class="chips">${l.map(c=>`<span class="chip ${on.has(c)?'on':''}">${esc(c)}</span>`).join('')}</div></div>`).join('')}<div class="src">Destacados: clientes com notícia relevante nesta edição</div></div>`:''}
    ${b.abas?`<div class="abas" role="group" aria-label="Filtrar ${esc(b.titulo)}"><button data-aba="" aria-pressed="true">Todas</button>${b.abas.map(a=>`<button data-aba="${esc(a)}" aria-pressed="false">${esc(a)}</button>`).join('')}</div>`:''}
    ${b.empresas?`<div class="emps">${b.empresas.map(emp).join('')}</div>`:''}
    ${b.noticias.length?`<div class="news">${b.noticias.map(card).join('')}</div>`:''}
-   ${b.aviso?`<div class="aviso">${esc(b.aviso)}</div>`:''}</div></section>`).join('');
-  const t=$('#topo');if(img(D.fundo_topo)){t.className+=bgCls(D.fundo_topo);t.style.setProperty('--img',`url('${img(D.fundo_topo)}')`)}
-  const mt=$('#metodo');if(img(D.fundo_metodo)){mt.className+=bgCls(D.fundo_metodo);mt.style.setProperty('--img',`url('${img(D.fundo_metodo)}')`)}
+   ${b.aviso?`<div class="aviso">${esc(b.aviso)}</div>`:''}${pager(i)}</div></section>`).join('');
+  document.querySelectorAll('#views > section[data-blk]').forEach(s=>s.remove());
+  $('#metodo').insertAdjacentHTML('beforebegin',html);
+  B.forEach(b=>document.getElementById(b.id).dataset.blk='1');
+  const lastDate=b=>{const ds=[...b.noticias,...(b.empresas||[]).flatMap(e=>e.noticias||[])].map(n=>n.data).filter(d=>/^\d\d\/\d\d\/\d{4}$/.test(d||'')).sort((x,y)=>x.split('/').reverse().join('').localeCompare(y.split('/').reverse().join('')));return ds.length?ds[ds.length-1].slice(0,5):''};
+  $('#tiles').innerHTML=B.map(b=>{const nn=b.noticias.length+(b.empresas||[]).reduce((a,e)=>a+(e.noticias||[]).length,0),ld=lastDate(b);return `<a class="tile" href="#${esc(b.id)}" style="--img:url('${img(b.fundo)}');--c:var(${BC[b.id]||'--az'})"><div class="in"><span class="n">Bloco ${esc(b.num)}</span><h3>${esc(b.titulo)}</h3><p>${esc(b.objetivo)}</p><div class="ft"><span><b>${nn}</b> ${nn===1?'notícia':'notícias'}</span><span>${ld?'mais recente '+esc(ld):''}</span></div></div></a>`}).join('')+`<a class="tile how" href="#metodo"><div class="in"><span class="n" style="--c:var(--mute)">Guia</span><h3>Como ler este radar</h3><p>Regras dos status, fontes e como a atualização funciona.</p><div class="ft"><span>Metodologia</span><span>→</span></div></div></a>`;
+  const mt=$('#metodo');mt.className+=bgCls('img/financas.jpg');mt.style.setProperty('--img',"url('img/financas.jpg')");
   document.querySelectorAll('.abas').forEach(g=>g.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;g.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));const sec=g.closest('section');sec.querySelectorAll('.card').forEach(c=>{c.hidden=!!b.dataset.aba&&c.dataset.aba!==b.dataset.aba})}));
   const m=D.fx.usd_mensal,mx=Math.max(...m.map(x=>x[1])),mn=Math.min(...m.map(x=>x[1]))*0.97;
   $('#mbars').innerHTML=m.map((x,i)=>`<div class="bar"><span>${esc(x[0])}</span><i class="${i===m.length-1?'hot':''}" style="width:${((x[1]-mn)/(mx-mn)*100).toFixed(1)}%"></i><span>${br(x[1],2)}</span></div>`).join('');
   document.querySelectorAll('.tabs button').forEach(b=>b.addEventListener('click',()=>{if(b.dataset.c)cur=b.dataset.c;if(b.dataset.r)range=+b.dataset.r;draw()}));
   const ro=new ResizeObserver(draw);ro.observe($('#fxfig'));
-  draw();
+  route(true);
 }
+const ORDER=()=>['inicio',...D.blocos.map(b=>b.id),'metodo'];
+function route(first){
+  let id=(location.hash||'#inicio').slice(1);
+  if(id==='pulso'){id='inicio'}
+  if(!document.getElementById(id)||!ORDER().includes(id))id='inicio';
+  document.querySelectorAll('#views > .view').forEach(v=>{v.hidden=v.id!==id});
+  document.querySelectorAll('.tabsnav a').forEach(a=>{const on=a.getAttribute('href')==='#'+id;on?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current');if(on&&!first)a.scrollIntoView({block:'nearest',inline:'center'})});
+  if(location.hash==='#pulso'){requestAnimationFrame(()=>document.getElementById('pulso').scrollIntoView({behavior:first?'auto':'smooth'}))}else{window.scrollTo(0,0)}
+  const t=D.blocos.find(b=>b.id===id);document.title=(t?'Bloco '+t.num+' · '+t.titulo+' — ':'')+'Radar Supply Chain GHT';
+  if(id==='b1')requestAnimationFrame(draw);
+}
+addEventListener('hashchange',()=>route(false));
+addEventListener('keydown',e=>{if(e.altKey||e.ctrlKey||e.metaKey||/INPUT|TEXTAREA|SELECT/.test(e.target.tagName)||!D)return;
+  const o=ORDER(),cur=(location.hash||'#inicio').slice(1).replace('pulso','inicio'),i=Math.max(0,o.indexOf(cur));
+  if(e.key==='ArrowRight'&&i<o.length-1){location.hash=o[i+1];e.preventDefault()}
+  else if(e.key==='ArrowLeft'&&i>0){location.hash=o[i-1];e.preventDefault()}
+  else if(e.key==='Home'){location.hash='inicio';e.preventDefault()}});
 function draw(){
-  const fig=$('#fxfig'),s=$('#fxsvg');if(!fig||!D)return;
+  const fig=$('#fxfig'),s=$('#fxsvg');if(!fig||!D||!fig.clientWidth)return;
   document.querySelectorAll('.tabs button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.c?b.dataset.c===cur:+b.dataset.r===range)));
   const all=D.fx[cur],pts=all.slice(-Math.min(range+1,all.length));
   const last=pts[pts.length-1][1],first=pts[0][1],ch=(last/first-1)*100;
@@ -268,5 +375,3 @@ fetch('data.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(r.status
 </script>
 </body>
 </html>
-
-</body></html>
